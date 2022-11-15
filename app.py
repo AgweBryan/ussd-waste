@@ -19,7 +19,7 @@ app.config['Secret_key'] = 'my long secret key'
 # db
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost/health_waste'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ihdvpjwyzvkpqs:1ce0475bfe3c0ed9a9b3f8d18c43453f4e6dded42ec39190e4b265f79b9d00a4@ec2-52-4-104-184.compute-1.amazonaws.com:5432/db0fv80slqe443'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ihdvpjwyzvkpqs:1ce0475bfe3c0ed9a9b3f8d18c43453f4e6dded42ec39190e4b265f79b9d00a4@ec2-52-4-104-184.compute-1.amazonaws.com:5432/db0fv80slqe443'
 #secret key
 app.config['Secret_key'] = "my long secret key veryy"
 #initialize db
