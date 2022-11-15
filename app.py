@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 
-logging.basicConfig(filename='record.log', level=logging.DEBUG)
+# logging.basicConfig(filename='record.log', level=logging.DEBUG)
 app = Flask(__name__)
 
 # Secret key
@@ -127,7 +127,7 @@ def find_user(userId):
 '''
 
 
-@app.route('/')
+@app.route('/ussd_home')
 def hellow_world():
     value1 = '1'
     value2 = '2'
@@ -135,7 +135,7 @@ def hellow_world():
     return 'first page'
 
 
-@app.route('/ussd', methods = ['GET', 'POST'])
+@app.route('/', methods = ['GET', 'POST'])
 def ussd():
     # Read the variables sent via POST from our API
     session_id = request.values.get('sessionId')

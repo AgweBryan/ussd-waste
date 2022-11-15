@@ -112,3 +112,9 @@ INFO:werkzeug:127.0.0.1 - - [15/Nov/2022 21:00:23] "GET /ussd?phoneNumber=682870
 INFO:werkzeug:127.0.0.1 - - [15/Nov/2022 21:00:30] "GET /ussd?phoneNumber=682870539&text=1*1*Charlie*111111111 HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [15/Nov/2022 21:00:37] "GET /ussd?phoneNumber=682870539&text=1*1*Charlie*111111111*1234 HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [15/Nov/2022 21:00:52] "GET /ussd?phoneNumber=682870539&text=1*1*Charlie*111111111*1234*99 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\ab\\Desktop\\ussd-waste\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 119-788-935
+INFO:werkzeug: * Detected change in 'C:\\Users\\ab\\Desktop\\ussd-waste\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
