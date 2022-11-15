@@ -6,6 +6,7 @@ import mysql.connector
 import re
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask import Response
 
 
 
@@ -275,7 +276,8 @@ def ussd():
 
 
     print('The value of response is: ', response)
-    return response
+    return Response(response, mimetype='text/plain')
+    # return response
     # return 'ussd path'
     
 
