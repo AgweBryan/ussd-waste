@@ -146,8 +146,8 @@ def ussd():
     # fetch user
     user = User.query.filter_by(phone=phone_number).first()
 
-    if text:
-        x = text.split('*')
+   
+    x = text.split('*')
 
     y = len(x)
 
@@ -207,7 +207,7 @@ def ussd():
         elif y == 3 and re.search('1\*1\*[a-zA-Z]', text):
             # text == '1*1*username'
             response = 'Enter Bank Account Number'
-        elif y == 4 and len(x[y-1]) == 9 and x[1] == '1':
+        elif y == 4 and x[1] == '1':
             # text == '1*1*username*bankAccount'
             bank_account_number = x[y-1]
             response = 'Create SOSOCARE Account PIN'
@@ -230,7 +230,7 @@ def ussd():
         elif y == 3 and re.search('1\*2\*[a-zA-Z]', text) and x[1] == '2':
             # text == '1*1*username'
             response = 'Enter Bank Account Number'
-        elif y == 4 and len(x[y-1]) == 9 and x[1] == '2':
+        elif y == 4  and x[1] == '2':
             # text == '1*1*username*bankAccount'
             response = 'Create SOSOCARE Account PIN'
         elif y == 5 and len(x[y-1]) == 4 and x[1] == '2':
