@@ -151,6 +151,8 @@ def ussd():
 
     y = len(x)
 
+    response = ''
+
     if user:
         if text == '' or x[y-1] == '99':
             # Main menu
@@ -272,7 +274,7 @@ def ussd():
         # Organization registration ends
 
 
-
+    print('The value of response is: ', response)
     return response
     # return 'ussd path'
     
