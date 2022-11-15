@@ -147,7 +147,7 @@ def ussd():
     user = User.query.filter_by(phone=phone_number).first()
 
    
-    x = text.split('*')
+    x = str(text).split('*')
 
     y = len(x)
 
