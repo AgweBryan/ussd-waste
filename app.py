@@ -164,6 +164,8 @@ def ussd():
             response += '4. Withdraw funds\n'
             response += '5. Submit insurance claim\n'
             response += '6. Change PIN\n'
+
+            print(response)
          
 
         elif text == '1':
