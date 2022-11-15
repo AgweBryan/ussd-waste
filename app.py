@@ -128,7 +128,7 @@ def find_user(userId):
 '''
 
 
-@app.route('/ussd_home')
+@app.route('/')
 def hellow_world():
     value1 = '1'
     value2 = '2'
@@ -136,7 +136,7 @@ def hellow_world():
     return 'first page'
 
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/ussd', methods = ['POST'])
 def ussd():
     # Read the variables sent via POST from our API
     session_id = request.values.get('sessionId')
