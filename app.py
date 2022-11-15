@@ -276,7 +276,7 @@ def ussd():
 
 
     print('The value of response is: ', response)
-    return Response(response, mimetype='text/plain')
+    return Response(response, mimetype='text/xml')
     # return response
     # return 'ussd path'
     
