@@ -152,7 +152,7 @@ def ussd():
 
     y = len(x)
 
-    response = ''
+    response = 'Show on browser'
 
     if user:
         if text == '' or x[y-1] == '99':
@@ -276,7 +276,7 @@ def ussd():
 
 
     print('The value of response is: ', response)
-    return Response(response, mimetype='text/plain')
+    return Response(response, content_type='text/plain')
     # return response
     # return 'ussd path'
     
