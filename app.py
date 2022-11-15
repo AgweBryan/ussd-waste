@@ -146,14 +146,10 @@ def ussd():
     # fetch user
     user = User.query.filter_by(phone=phone_number).first()
 
-    print(user)
-    print(phone_number)
-
-    x = text.split('*')
+    if text:
+        x = text.split('*')
+    
     y = len(x)
-
-    print('The Value of x: ', x)
-
 
     if user:
         if text == '' or x[y-1] == '99':
@@ -214,7 +210,6 @@ def ussd():
         elif y == 4 and len(x[y-1]) == 9 and x[1] == '1':
             # text == '1*1*username*bankAccount'
             bank_account_number = x[y-1]
-            print('The user bankAccount', bank_account_number)
             response = 'Create SOSOCARE Account PIN'
         elif y == 5 and len(x[y-1]) == 4 and x[1] == '1':
             # text == '1*1*username*bankAccount*pin'
