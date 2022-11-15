@@ -223,6 +223,7 @@ def ussd():
             # add user to database
             # insert_user(current_user)
             db.session.add(current_user)
+            db.session.commit()
             response = 'END Thank you. We are verifying your information\n\n'
             response += '99. Main menu'
         # Waste collector registration ends
@@ -244,6 +245,7 @@ def ussd():
             # add user to database
             # insert_user(current_user)
             db.session.add(current_user)
+            db.session.commit()
             response = 'END Thank you. We are verifying your information\n\n'
             response += '99. Main menu'
 
@@ -267,6 +269,7 @@ def ussd():
             # add user to database
             # insert_user(current_user)
             db.session.add(current_user)
+            db.session.commit()
             response = 'END Thank you. We are verifying your information\n\n'
             response += '99. Main menu'    
 
