@@ -136,7 +136,7 @@ def hellow_world():
     return 'first page'
 
 
-@app.route('/ussd', methods = ['POST'])
+@app.route('/ussd', methods = ['POST', 'GET'])
 def ussd():
     # Read the variables sent via POST from our API
     session_id = request.values.get('sessionId')
@@ -148,7 +148,7 @@ def ussd():
 
     if text:
         x = text.split('*')
-    
+
     y = len(x)
 
     if user:
