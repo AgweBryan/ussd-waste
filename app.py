@@ -130,7 +130,17 @@ def ussd():
          
 
         elif text == '1':
-           response = 'STILL TODO'
+            # User selected request pickup
+            response = 'Enter Area'
+
+        elif y == 2 and x[0] == '1':
+            response = 'Enter waste type'
+        
+        elif y == 3 and x[0] == '1':
+            response = 'Enter Approximate quantity in kgs'
+        elif y == 4 and x[0] == '1':
+            response = 'Thank you. We are processing your request\n\n'
+            response += '99. Main menu'
                
     else:
         if text == '':
