@@ -153,6 +153,7 @@ def ussd():
     y = len(x)
 
     response = 'Show on browser'
+    print('The value of text is:', text)
 
     if user:
         if text == '' or x[y-1] == '99':
@@ -165,7 +166,6 @@ def ussd():
             response += '5. Submit insurance claim\n'
             response += '6. Change PIN\n'
 
-            print(response)
          
 
         elif text == '1':
@@ -186,6 +186,8 @@ def ussd():
             response = 'CON Welcome to SOSOCARE\n\n'
             response += '1. Register\n'
             response += '2. Terms and Conditions'
+            print('The second response: ', response)
+
         elif text == '1':
             # if user does not exist, register user
             response = 'CON Register on SOSOCARE.\n Select user type\n\n'
