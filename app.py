@@ -196,27 +196,27 @@ def ussd():
             response += '99. Main menu'
 
         elif text == '2':
-            response = 'Thank you for choosing SOSOCARE insurance. Accept ECO medical plan terms and conditions Available through our whatsapp number +xxxxxxxx, agree that SOSOCARE can share your data with Medical service providers\n\n'
+            response = 'CON Thank you for choosing SOSOCARE insurance. Accept ECO medical plan terms and conditions Available through our whatsapp number +xxxxxxxx, agree that SOSOCARE can share your data with Medical service providers\n\n'
             response += '0. Next'
 
         elif text == '2*0' or (x[y-1] == '0' and x[0] == '2'):
-            response = 'END And confirm you are between 18 and 65 years old. For enquiries kindly call +xxxxxxxxx\n\n'
+            response = 'CON And confirm you are between 18 and 65 years old. For enquiries kindly call +xxxxxxxxx\n\n'
             response += '#. Previous'
 
         elif text == '2*0*#' or (x[y-1] == '#' and x[0] == '2'):
-            response = 'Thank you for choosing SOSOCARE insurance. Accept ECO medical plan terms and conditions Available through our whatsapp number +xxxxxxxx, agree that SOSOCARE can share your data with Medical service providers\n\n'
+            response = 'CON Thank you for choosing SOSOCARE insurance. Accept ECO medical plan terms and conditions Available through our whatsapp number +xxxxxxxx, agree that SOSOCARE can share your data with Medical service providers\n\n'
             response += '0. Next'
         
         # Waste collector registration starts
         elif text == '1*1':
-            response = 'Enter Name & Surname'
+            response = 'CON Enter Name & Surname'
         elif y == 3 and re.search('1\*1\*[a-zA-Z]', text):
             # text == '1*1*username'
-            response = 'Enter Bank Account Number'
+            response = 'CON Enter Bank Account Number'
         elif y == 4 and x[1] == '1':
             # text == '1*1*username*bankAccount'
             bank_account_number = x[y-1]
-            response = 'Create SOSOCARE Account PIN'
+            response = 'CON Create SOSOCARE Account PIN'
         elif y == 5 and len(x[y-1]) == 4 and x[1] == '1':
             # text == '1*1*username*bankAccount*pin'
             username = x[y-3]
@@ -226,19 +226,19 @@ def ussd():
             # insert_user(current_user)
             db.session.add(current_user)
             db.session.commit()
-            response = 'END Thank you. We are verifying your information\n\n'
+            response = 'CON END Thank you. We are verifying your information\n\n'
             response += '99. Main menu'
         # Waste collector registration ends
 
         # Waste collector agent registration starts
         elif text == '1*2':
-            response = 'Enter Name & Surname2'
+            response = 'CON Enter Name & Surname2'
         elif y == 3 and re.search('1\*2\*[a-zA-Z]', text) and x[1] == '2':
             # text == '1*1*username'
-            response = 'Enter Bank Account Number'
+            response = 'CON Enter Bank Account Number'
         elif y == 4  and x[1] == '2':
             # text == '1*1*username*bankAccount'
-            response = 'Create SOSOCARE Account PIN'
+            response = 'CON Create SOSOCARE Account PIN'
         elif y == 5 and len(x[y-1]) == 4 and x[1] == '2':
             # text == '1*1*username*bankAccount*pin'
             username = x[y-3]
@@ -248,7 +248,7 @@ def ussd():
             # insert_user(current_user)
             db.session.add(current_user)
             db.session.commit()
-            response = 'END Thank you. We are verifying your information\n\n'
+            response = 'CON END Thank you. We are verifying your information\n\n'
             response += '99. Main menu'
 
         # Waste collector agent registration ends
@@ -256,13 +256,13 @@ def ussd():
         # Organization registration starts
 
         elif text == '1*3':
-            response = 'Enter Organization name'
+            response = 'CON Enter Organization name'
         elif y == 3 and re.search('1\*3\*[a-zA-Z]', text) and x[1] == '3':
             # text == '1*1*organizationName'
-            response = 'Enter address'
+            response = 'CON Enter address'
         elif y == 4 and x[1] == '3':
             # text == '1*1*organizationName*address'
-            response = 'Create SOSOCARE Account PIN'
+            response = 'CON Create SOSOCARE Account PIN'
         elif y == 5 and len(x[y-1]) == 4 and x[1] == '3':
             # text == '1*1*organizationname*address*pin'
             username = x[y-3]
