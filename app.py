@@ -169,18 +169,19 @@ def ussd():
 
         elif text == '1':
             # User selected request pickup
-            response = 'Enter Area'
+            response = 'CON Enter Area'
 
         elif y == 2 and x[0] == '1':
-            response = 'Enter waste type'
+            response = 'CON Enter waste type'
         
         elif y == 3 and x[0] == '1':
-            response = 'Enter Approximate quantity in kgs'
+            response = 'CON Enter Approximate quantity in kgs'
         elif y == 4 and x[0] == '1':
-            response = 'Thank you. We are processing your request\n\n'
+            response = 'CON Thank you. We are processing your request\n\n'
             response += '99. Main menu'
                
     else:
+        # Block for user registration
         if text == '':
             response = 'CON Welcome to SOSOCARE\n\n'
             response += '1. Register\n'
@@ -272,7 +273,7 @@ def ussd():
             # insert_user(current_user)
             db.session.add(current_user)
             db.session.commit()
-            response = 'END Thank you. We are verifying your information\n\n'
+            response = 'CON Thank you. We are verifying your information\n\n'
             response += '99. Main menu'    
 
         # Organization registration ends
