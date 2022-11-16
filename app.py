@@ -222,6 +222,33 @@ def ussd():
         elif  y == 6 and x[0] == '2' and x[y-4] == user.pin:
             response = 'CON Thank you. We are verifying your information\n\n'
             response += '99. Main menu'
+
+        elif y == 1 and x[0] == '3':
+            # User selected check balance
+            response = 'CON Enter PIN'
+        elif y == 2 and x[0] == '3':
+            response = 'CON Your SOSOCash balance is <account_balance> You\'re currently on ECO PLAN\n\n'
+            response += '1. View Policy benefits\n\n'
+            response += '99. Main menu'
+        elif y == 3 and x[3] == '3':
+            # response = 'CON Hi Nonso, You have the following benefits\n\n'
+            response = 'CON Hi ' + user.name + ', You have the following benefits\n\n'
+            response += '1. Hospital Admission Accommodation\n'
+            response += '2. Emergency Intensive Care Treatment\n'
+            response += '3. Minor Surgeries\n'
+            response += '4. SCAN: MRI And CT Scan\n\n'
+            response += '99. Main menu'
+
+        elif y == 1 and x[0] == '4':
+            # User selected Withdraw funds
+            response = 'CON Enter Agent Code'
+        elif y == 2 and x[0] == '4':
+            response = 'CON Enter Amount'
+        elif y == 3 and x[0] == '4':
+            response = 'CON Enter PIN'
+        elif y == 4 and x[0] == '4' and x[y-1] == user.pin:
+            response = 'CON You have withdrawn <amount> from agenet <agent_id>. Your SOSOCash balance is <account_balance>\n\n'
+            response = '99. Main menu'
                
     else:
         # Block for user registration
