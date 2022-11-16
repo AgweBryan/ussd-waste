@@ -172,7 +172,7 @@ def ussd():
 
          
 
-        elif text == '1':
+        elif y == 1 and x[0] == '1':
             # User selected request pickup
             response = 'CON Enter Area'
 
@@ -185,7 +185,7 @@ def ussd():
             response = 'CON Thank you. We are processing your request\n\n'
             response += '99. Main menu'
 
-        elif text == '2':
+        elif y == 1 and x[0] == '2':
             # User selected Record transaction
             response = 'CON Enter collector ID:'
         elif y == 2 and x[0] == '2':
