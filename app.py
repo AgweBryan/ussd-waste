@@ -157,6 +157,7 @@ def ussd():
     if user:
         if text == '' or x[y-1] == '99':
 
+            print('The value of x before clearing is: ', x)
             x.clear()
             print('The value of y after clearing x is: ', y)
             print('The value of x is: ', x)
@@ -231,7 +232,6 @@ def ussd():
             response = 'CON Welcome to SOSOCARE\n\n'
             response += '1. Register\n'
             response += '2. Terms and Conditions'
-            print('The second response: ', response)
 
         elif text == '1':
             # if user does not exist, register user
@@ -324,7 +324,6 @@ def ussd():
         # Organization registration ends
 
 
-    print('The value of response is: ', response)
     return Response(response, content_type='text/plain')
     # return response
     # return 'ussd path'
