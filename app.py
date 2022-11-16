@@ -1,12 +1,16 @@
 
-import logging 
+import os
+from dotenv import load_dotenv
 from flask import Flask, request
-# from flask_sqlalchemy import SQLAlchemy
-import mysql.connector
-import re
 from flask_sqlalchemy import SQLAlchemy
+import re
 from datetime import datetime
 from flask import Response
+from flask_migrate import Migrate
+
+load_dotenv()
+
+
 
 
 
@@ -18,13 +22,19 @@ app.config['Secret_key'] = 'my long secret key'
 
 
 # db
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost/health_waste'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ihdvpjwyzvkpqs:1ce0475bfe3c0ed9a9b3f8d18c43453f4e6dded42ec39190e4b265f79b9d00a4@ec2-52-4-104-184.compute-1.amazonaws.com:5432/db0fv80slqe443'
+SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL') 
+if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+    SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
+
+print(SQLALCHEMY_DATABASE_URI)
+# 'postgresql://ihdvpjwyzvkpqs:1ce0475bfe3c0ed9a9b3f8d18c43453f4e6dded42ec39190e4b265f79b9d00a4@ec2-52-4-104-184.compute-1.amazonaws.com:5432/db0fv80slqe443'
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 #secret key
 app.config['Secret_key'] = "my long secret key veryy"
 #initialize db
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
 #model
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True, )
@@ -47,86 +57,6 @@ class User(db.Model):
     # def __repr__(self):
     #     return '<User %r>' % self
 
-
-'''
-# class User:
-  
-
-#     def __init__(self, id, name, pin, phone_number, userType) -> None:
-#         self.id = id
-#         self.pin  = pin
-#         self.name = name
-#         self.phone_number = phone_number
-#         self.userType = userType
-
-
-#     def toTuple(self):
-#         userCred = []
-#         userCred.append(self.id)
-#         userCred.append(self.name)
-#         userCred.append(self.pin)
-#         userCred.append(self.phone_number)
-#         userCred.append(self.userType)
-#         return userCred
-
-#     def fromTuple(tuple):
-#         return User(id=tuple[0], name=tuple[1], pin=tuple[2], phone_number=tuple[2], userType=tuple[2])
-
-#     def __repr__(self):
-#         return f'<User {self.name}>'
-
-
-# Database functions begin 
-
- # Connect to db 'health_waste
-def connectToDb():
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="root",
-        database="health_waste"
-    )
-
-# Insert a user in the users table
-def insert_user(user):
-    mydb = connectToDb()
-
-    mycursor = mydb.cursor()
-
-    sql = "INSERT INTO users (id, name, pin, phone_number, userType) VALUES (%s, %s, %s, %s, %s)"
-    # val = ("John", "Highway 21")
-    print(user.toTuple())
-    mycursor.execute(sql, user.toTuple())
-
-    mydb.commit()
-
-    print(mycursor.lastrowid, "record inserted.")
-
-    
-
-# Find a user in the user table
-def find_user(userId):
-    mydb = connectToDb()
-    mycursor = mydb.cursor()
-
-    sql = "SELECT * FROM users WHERE id = %s"
-    id = userId.split()
-
-    mycursor.execute(sql, id)
-
-    myresult = mycursor.fetchall() # Returns a list of users that match
-
-    for x in myresult:
-        print("The user exists: ", x)
-
-    if len(myresult) > 0:
-        return User.fromTuple(myresult[0])
-    else:
-        return False
-
-
-# Database functions end
-'''
 
 
 @app.route('/')
