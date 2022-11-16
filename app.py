@@ -230,7 +230,7 @@ def ussd():
             response = 'CON Your SOSOCash balance is <account_balance> You\'re currently on ECO PLAN\n\n'
             response += '1. View Policy benefits\n\n'
             response += '99. Main menu'
-        elif y == 3 and x[3] == '3':
+        elif y == 3 and x[0] == '3':
             # response = 'CON Hi Nonso, You have the following benefits\n\n'
             response = 'CON Hi ' + user.name + ', You have the following benefits\n\n'
             response += '1. Hospital Admission Accommodation\n'
