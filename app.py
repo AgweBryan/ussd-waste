@@ -219,7 +219,7 @@ def ussd():
             response = 'CON You\'re trading <qty> kg METAL valued at Naira <metal_price*qty>\n\n' # TODO: GET QTY
         elif y == 5 and x[0] == '2' and x[y-3] == '3':
             response = 'CON Enter PIN'
-        elif  y == 6 and x[0] == '2' and x[y-4] == user.pin:
+        elif  y == 6 and x[0] == '2' and x[y-1] == user.pin:
             response = 'CON Thank you. We are verifying your information\n\n'
             response += '99. Main menu'
 
@@ -227,7 +227,7 @@ def ussd():
             # User selected check balance
             response = 'CON Enter PIN'
         elif y == 2 and x[0] == '3':
-            response = 'CON Your SOSOCash balance is <account_balance> You\'re currently on ECO PLAN\n\n'
+            response = 'CON Your SOSOCash '+user.pin+' balance is <account_balance> You\'re currently on ECO PLAN\n\n'
             response += '1. View Policy benefits\n\n'
             response += '99. Main menu'
         elif y == 3 and x[0] == '3':
