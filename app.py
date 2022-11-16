@@ -146,7 +146,7 @@ def ussd():
     text         = request.values.get("text", "default") # The first begins with CON and the last with END
     # fetch user
     user = User.query.filter_by(phone=phone_number).first()
-
+    print(user)
    
     x = str(text).split('*')
 
@@ -214,7 +214,7 @@ def ussd():
         elif y == 3 and x[0] == '2' and x[y-1] == '3':
             response = 'CON Enter Quantity'
         elif y == 4 and x[0] == '2' and x[y-2] == '3':
-            response = 'CON You\'re trading <qty> kg RUBBER valued at Naira <rubber_price*qty>\n\n' # TODO: GET QTY
+            response = 'CON You\'re trading <qty> kg METAL valued at Naira <metal_price*qty>\n\n' # TODO: GET QTY
         elif y == 5 and x[0] == '2' and x[y-3] == '3':
             response = 'CON Enter PIN'
         elif  y == 6 and x[0] == '2' and x[y-4] == user.pin:
