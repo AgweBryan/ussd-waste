@@ -7,7 +7,6 @@ import re
 from datetime import datetime
 from flask import Response
 from flask_migrate import Migrate
-
 load_dotenv()
 
 
