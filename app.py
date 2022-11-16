@@ -146,7 +146,7 @@ def ussd():
     text         = request.values.get("text", "default") # The first begins with CON and the last with END
     # fetch user
     user = User.query.filter_by(phone=phone_number).first()
-    print(user)
+    print('The value of user is: ', user)
    
     x = str(text).split('*')
 
