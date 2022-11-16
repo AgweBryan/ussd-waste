@@ -178,6 +178,27 @@ def ussd():
         elif y == 4 and x[0] == '4' and x[y-1] == user.pin:
             response = 'CON You have withdrawn <amount> from agenet <agent_id>. Your SOSOCash balance is <account_balance>\n\n'
             response = '99. Main menu'
+        
+        elif y == 1 and x[0] == '5':
+            # User selected Submit Claim
+            response = 'CON Redeem ECO PLAN Policy\n\n'
+            response += '1. Proceed\n\n'
+            response += '99. Main menu'
+        elif y == 2 and x[0] == '5' and x[y-1] == '1':
+            response = 'CON Thank you. We are processing your request. Call 000000000 for more info.\n\n99. Main Menu'
+        
+        elif y == 1 and x[0] == '6':
+            # User selected Change PIN
+            response = 'CON Enter Current PIN'
+        elif y == 2 and x[0] == '6':
+            # Check pin here
+            # After check update pin
+            response = 'CON Enter New PIN'
+        elif y == 3 and x[0] == '6':
+            response = 'CON ' + user.name + ', your new pin has been recorded\n\n'
+            response += '99. Main menu'
+
+
                
     else:
         # Block for user registration
