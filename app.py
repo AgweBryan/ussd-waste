@@ -179,6 +179,47 @@ def ussd():
         elif y == 4 and x[0] == '1':
             response = 'CON Thank you. We are processing your request\n\n'
             response += '99. Main menu'
+
+        elif text == '2':
+            # User selected Record transaction
+            response = 'CON Enter collector ID:'
+        elif y == 2 and x[0] == '2':
+            response = 'CON Select waste type\n\n'
+            response += '1. PET\n'
+            response += '2. Rubber\n'
+            response += '3. Metal\n\n'
+            response += '99. Main menu'
+        elif y == 3 and x[0] == '2' and x[y-1] == '1':
+            response = 'CON Enter Quantity'
+        elif y == 4 and x[0] == '2' and x[y-2] == '1':
+            response = 'CON You\'re trading <qty> kg PET valued at Naira <pet_price*qty>\n\n' # TODO: GET QTY
+            response += '1. Proceed\n\n'
+            response += '99. Main menu'
+        elif y == 5 and x[0] == '2' and x[y-3] == '1':
+            response = 'CON Enter PIN'
+        elif y == 6 and x[0] == '2' and x[y-4] == user.pin:
+            response = 'CON Thank you. We are verifying your information\n\n'
+            response += '99. Main menu'
+
+        elif y == 3 and x[0] == '2' and x[y-1] == '2':
+            response = 'CON Enter Quantity'
+        elif y == 4 and x[0] == '2' and x[y-2] == '2':
+            response = 'CON You\'re trading <qty> kg RUBBER valued at Naira <rubber_price*qty>\n\n' # TODO: GET QTY
+        elif y == 5 and x[0] == '2' and x[y-3] == '2':
+            response = 'CON Enter PIN'
+        elif  y == 6 and x[0] == '2' and x[y-4] == user.pin:
+            response = 'CON Thank you. We are verifying your information\n\n'
+            response += '99. Main menu'
+
+        elif y == 3 and x[0] == '2' and x[y-1] == '3':
+            response = 'CON Enter Quantity'
+        elif y == 4 and x[0] == '2' and x[y-2] == '3':
+            response = 'CON You\'re trading <qty> kg RUBBER valued at Naira <rubber_price*qty>\n\n' # TODO: GET QTY
+        elif y == 5 and x[0] == '2' and x[y-3] == '3':
+            response = 'CON Enter PIN'
+        elif  y == 6 and x[0] == '2' and x[y-4] == user.pin:
+            response = 'CON Thank you. We are verifying your information\n\n'
+            response += '99. Main menu'
                
     else:
         # Block for user registration
