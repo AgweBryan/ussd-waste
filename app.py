@@ -140,10 +140,10 @@ def hellow_world():
 @app.route('/ussd', methods = ['POST', 'GET'])
 def ussd():
     # Read the variables sent via POST from our API
-    session_id = request.values.get('sessionId')
-    service_code = request.values.get('serviceCode')
-    phone_number = request.args.get('phoneNumber')
-    text = request.args.get('text') # The first begins with CON and the last with END
+    session_id   = request.values.get("sessionId", None)
+    serviceCode  = request.values.get("serviceCode", None)
+    phone_number = request.values.get("phoneNumber", None)
+    text         = request.values.get("text", "default") # The first begins with CON and the last with END
     # fetch user
     user = User.query.filter_by(phone=phone_number).first()
 
@@ -152,8 +152,7 @@ def ussd():
 
     y = len(x)
 
-    response = 'Show on browser'
-    print('The value of text is:', text)
+    response = ''
 
     if user:
         if text == '' or x[y-1] == '99':
