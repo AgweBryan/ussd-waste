@@ -157,10 +157,6 @@ def ussd():
     if user:
         if text == '' or x[y-1] == '99':
 
-            print('The value of x before clearing is: ', x)
-            x.clear()
-            print('The value of y after clearing x is: ', y)
-            print('The value of x is: ', x)
             # Main menu
             response = 'CON Welcome back ' + user.name + '! How can we assist you\n\n'
             response += '1. Request pickup\n'
@@ -173,6 +169,7 @@ def ussd():
          
 
         elif y == 1 and x[0] == '1':
+            print('The value of x when pickup is')
             # User selected request pickup
             response = 'CON Enter Area'
 
