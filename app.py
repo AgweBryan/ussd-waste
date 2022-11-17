@@ -128,7 +128,9 @@ def ussd():
             response += '99. Main menu'
         elif y == 5 and x[0] == '2' and x[y-3] == '1':
             response = 'CON Enter PIN'
-        elif y == 6 and x[0] == '2' and x[y-4] == user.pin:
+        elif y == 6 and x[0] == '2':
+            # Check user pin here
+            print('This is the user pin5: ', user.pin)
             response = 'CON Thank you. We are verifying your information\n\n'
             response += '99. Main menu'
 
@@ -138,7 +140,9 @@ def ussd():
             response = 'CON You\'re trading <qty> kg RUBBER valued at Naira <rubber_price*qty>\n\n' # TODO: GET QTY
         elif y == 5 and x[0] == '2' and x[y-3] == '2':
             response = 'CON Enter PIN'
-        elif  y == 6 and x[0] == '2' and x[y-4] == user.pin:
+        elif  y == 6 and x[0] == '2':
+            # Check user pin here
+            print('This is the user pin4: ', user.pin)
             response = 'CON Thank you. We are verifying your information\n\n'
             response += '99. Main menu'
 
@@ -148,7 +152,9 @@ def ussd():
             response = 'CON You\'re trading <qty> kg METAL valued at Naira <metal_price*qty>\n\n' # TODO: GET QTY
         elif y == 5 and x[0] == '2' and x[y-3] == '3':
             response = 'CON Enter PIN'
-        elif  y == 6 and x[0] == '2' and x[y-1] == user.pin:
+        elif  y == 6 and x[0] == '2':
+            # Check user pin here
+            print('This is the user pin3: ', user.pin)
             response = 'CON Thank you. We are verifying your information\n\n'
             response += '99. Main menu'
 
@@ -175,7 +181,9 @@ def ussd():
             response = 'CON Enter Amount'
         elif y == 3 and x[0] == '4':
             response = 'CON Enter PIN'
-        elif y == 4 and x[0] == '4' and x[y-1] == user.pin:
+        elif y == 4 and x[0] == '4':
+            # Check user pin here
+            print('This is the user pin 2: ', user.pin)
             response = 'CON You have withdrawn <amount> from agenet <agent_id>. Your SOSOCash balance is <account_balance>\n\n'
             response = '99. Main menu'
         
@@ -192,9 +200,13 @@ def ussd():
             response = 'CON Enter Current PIN'
         elif y == 2 and x[0] == '6':
             # Check pin here
+            print('The is the users pin: ', user.pin)
             # After check update pin
             response = 'CON Enter New PIN'
         elif y == 3 and x[0] == '6':
+            # Check new pin here
+            print('This is the new pin', x[y-1])
+            print('This is the old pin', user.pin)
             response = 'CON ' + user.name + ', your new pin has been recorded\n\n'
             response += '99. Main menu'
 
