@@ -186,7 +186,7 @@ def ussd():
         elif y == 2 and x[0] == '4':
             response = 'CON Enter Amount'
         elif y == 3 and x[0] == '4':
-            response = 'CON Enter PIN'
+            response = 'CON Enter PIN**'
         elif y == 4 and x[0] == '4':
             # Check user pin here
             current_pin = user.pin
