@@ -168,9 +168,12 @@ def ussd():
             # User selected check balance
             response = 'CON Enter PIN'
         elif y == 2 and x[0] == '3':
-            response = 'CON Your SOSOCash '+user.pin+' balance is <account_balance> You\'re currently on ECO PLAN\n\n'
-            response += '1. View Policy benefits\n\n'
-            response += '99. Main menu'
+            # Check pin here
+            current_pin = user.pin
+            if x[y-1] == current_pin:
+                response = 'CON Your SOSOCash '+user.pin+' balance is <account_balance> You\'re currently on ECO PLAN\n\n'
+                response += '1. View Policy benefits\n\n'
+                response += '99. Main menu'
         elif y == 3 and x[0] == '3':
             # response = 'CON Hi Nonso, You have the following benefits\n\n'
             response = 'CON Hi ' + user.name + ', You have the following benefits\n\n'
@@ -208,15 +211,16 @@ def ussd():
             response = 'CON Enter Current PIN'
         elif y == 2 and x[0] == '6':
             # Check pin here
-            print('The is the users pin: ', user.pin)
-            # After check update pin
-            response = 'CON Enter New PIN'
+            current_pin = user.pin
+            if x[y-1] == current_pin:
+                # After check update pin
+                response = 'CON Enter New PIN'
         elif y == 3 and x[0] == '6':
             # Check new pin here
             print('This is the new pin', x[y-1])
             print('This is the old pin', user.pin)
             print('The type of the pin variable is: ', type(user.pin))
-            
+            # Update user pin here
             response = 'CON ' + user.name + ', your new pin has been recorded\n\n'
             response += '99. Main menu'
 
