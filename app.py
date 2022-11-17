@@ -207,6 +207,7 @@ def ussd():
             # Check new pin here
             print('This is the new pin', x[y-1])
             print('This is the old pin', user.pin)
+            print('The type of the pin variable is: ', type(user.pin))
             response = 'CON ' + user.name + ', your new pin has been recorded\n\n'
             response += '99. Main menu'
 
