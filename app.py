@@ -194,7 +194,8 @@ def ussd():
             # Check user pin here
             current_pin = user.pin
             print('This is the user pin 2: ', current_pin)
-            if x[y-1] == current_pin:
+            print('This is the pin the user entered: ', x[y-1])
+            if int(x[y-1]) == int(current_pin):
                 response = 'CON You have withdrawn <amount> from agenet <agent_id>. Your SOSOCash balance is <account_balance>\n\n'
                 response = '99. Main menu'
         
